@@ -71,7 +71,7 @@ void App::run()
     while(!glfwWindowShouldClose(window))
     {
         update(glfwGetTime());
-        cout << "FPS " << 1./glfwGetTime() << " (" << glfwGetTime() << ")" << endl;
+        //cout << "FPS " << 1./glfwGetTime() << " (" << glfwGetTime() << ")" << endl;
         glfwSetTime(0);
         draw();
     }

@@ -10,11 +10,8 @@ Planet::Planet()
     {
         -1, 1, -1,
         1, 1, -1,
+        -1, 1, 1,
         1, 1, 1,
-
-        -1, 1, -1,
-        1, 1, 1,
-        -1, 1, 1
     };
 
     // Create the VAO:
@@ -47,11 +44,11 @@ void Planet::draw(Camera *camera)
     shader->bind();
     glUniformMatrix4fv(glGetUniformLocation(shader->getProgramID(),"MVP"), 1, GL_FALSE, &(camera->getCameraMat()[0][0]));
 
-    glPatchParameteri(GL_PATCH_VERTICES, 3);
+    glPatchParameteri(GL_PATCH_VERTICES, 4);
 
     glUniform4f(glGetUniformLocation(shader->getProgramID(),"Color"), 1, 1, 1, 1);
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    glDrawArrays(GL_PATCHES, 0, 6);
+    glDrawArrays(GL_PATCHES, 0, 4);
 
 
 
